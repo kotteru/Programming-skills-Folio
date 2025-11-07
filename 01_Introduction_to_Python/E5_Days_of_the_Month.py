@@ -1,24 +1,47 @@
-# Create a Dictionary: Define a dictionary where the keys are month numbers and the values are the number of days in those months.
+# Define a dictionary where the keys are month numbers and the values are the number of days in those months.
 month_days = {
-    1: 31,   # January
-    2: 28,   # February
-    3: 31,   # March
-    4: 30,   # April
-    5: 31,   # May
-    6: 30,   # June
-    7: 31,   # July
-    8: 31,   # August
-    9: 30,   # September
-    10: 31,  # October
-    11: 30,  # November
-    12: 31   # December
+    1: 31,   
+    2: 28,   
+    3: 31,   
+    4: 30,   
+    5: 31,   
+    6: 30,   
+    7: 31,   
+    8: 31,   
+    9: 30,   
+    10: 31,  
+    11: 30,  
+    12: 31   
 }
 
-# Input Handling: Ask the user for a month number
+month_names = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December"
+}
+
+# 2. Input Handling - Ask user for month number
 month_number = int(input("Enter the month number (1-12): "))
 
-# 3. Check and Output: Use an if-else statement to Validate
+# 3. Check and Output - Validate using an if-else statement and account for leap years
 if month_number >= 1 and month_number <= 12:
-    print(f"Month {month_number} has {month_days[month_number]} days.")
+    days = month_days[month_number]
+    month_name = month_names[month_number]
+    
+    if month_number == 2:
+        leap_year = input("Is it a leap year? (yes/no): ")
+        if leap_year.lower() == "yes":
+            days = 29
+    
+    print(f"{month_name} has {days} days.")
 else:
-    print("Invalid month number! Please enter a number between 1 and 12.")
+    print("Invalid month number! Enter a valid month you dummy.")
